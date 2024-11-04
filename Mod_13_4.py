@@ -27,6 +27,11 @@ async def set_age(msg):
     await UserState.age.set()
 
 
+@dp.message_handler()
+async def anything(msg):
+    await msg.answer("Enter /start to begin")
+
+
 @dp.message_handler(state=UserState.age)
 async def set_height(msg, state):
     await state.update_data(age=msg.text)
