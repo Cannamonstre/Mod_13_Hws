@@ -25,6 +25,11 @@ async def main_menu(msg):
     await msg.answer('Choose the option: ', reply_markup=inl_kb)
 
 
+@dp.message_handler()
+async def anything(msg):
+    await msg.answer("Enter /start to begin")
+
+
 @dp.callback_query_handler(text='formula')
 async def get_formulas(call):
     await call.message.answer('10 x weight (kg) + 6,25 x height (sm) – 5 x age (yr) – 100')
